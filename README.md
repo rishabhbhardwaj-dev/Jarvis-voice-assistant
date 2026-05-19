@@ -205,4 +205,4 @@ jarvis_files_by_claude/
 
 ### Voice Command Execution
 
-![Voice Command](Voice Command Execution.png)
+![Voice Command](Voice%20Command%20Execution.png)
