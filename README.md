@@ -191,3 +191,22 @@ jarvis_files_by_claude/
 ---
 
 *Built with ❤️ using Groq AI (Llama) + Flask + Three.js*
+## 📷 Screenshots
+
+### JARVIS Dashboard
+
+![JARVIS Dashboard](Jarvis_Interface(Dashboard).png)
+
+---
+
+## 📷 Screenshots
+
+### JARVIS Dashboard
+
+![JARVIS Dashboard](Jarvis_Interface(Dashboard).png)
+
+---
+
+### Voice Command Execution
+
+![Voice Command](Voice Command Execution.png)
