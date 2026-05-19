@@ -1,0 +1,22 @@
+# JARVIS AI — Python dependencies
+# Google Gemini AI — new SDK (replaces deprecated google-generativeai)
+google-genai
+
+# Web framework
+flask
+flask-cors
+
+# Voice recognition (from tutorial)
+SpeechRecognition
+pyaudio
+
+# System monitoring
+psutil
+
+# Screen awareness (Step 10)
+pyautogui
+Pillow
+
+# API and Env variables
+groq
+python-dotenv

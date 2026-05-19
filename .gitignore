@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pyz
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+
+# Virtual environments (matches tutorial)
+venv/
+.venv/
+env/
+ENV/
+
+# IDE (matches tutorial)
+.idea/
+.vscode/
+*.suo
+*.swp
+*.swo
+
+# API keys — NEVER commit this (matches tutorial pattern)
+config.py
+.env
+
+# AI saves directory (generated at runtime)
+JarvisAI_Saves/
+
+# Old OpenAI saves dir (from tutorial)
+Openai/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
