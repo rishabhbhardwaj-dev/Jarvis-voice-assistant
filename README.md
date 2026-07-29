@@ -199,10 +199,10 @@ jarvis_files_by_claude/
 
 ### JARVIS Dashboard
 
-![JARVIS Dashboard](Jarvis_Interface(Dashboard).png)
+![JARVIS Dashboard](screenshots/Jarvis_Interface(Dashboard).png)
 
 ---
 
 ### Voice Command Execution
 
-![Voice Command](Voice%20Command%20Execution.png)
+![Voice Command](screenshots/Voice%20Command%20Execution.png)
