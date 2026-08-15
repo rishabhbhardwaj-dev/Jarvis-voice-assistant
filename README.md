@@ -195,23 +195,8 @@ jarvis_files_by_claude/
 
 ---
 
----
 
-## 🎬 Demo
 
-### 💤 JARVIS Sleep Mode
-
-[![JARVIS Sleep Mode](screenshots/Jarvis_Interface(Dashboard).png)](demo/Jarvis_SleepMode.mp4)
-
-Demonstration of JARVIS entering and handling Sleep Mode.
-
-### ▶️ Opening YouTube with Voice Command
-
-[![Opening YouTube](screenshots/Jarvis_Interface(Dashboard).png)](demo/Opening_YouTube.mp4)
-
-Demonstration of JARVIS responding to a voice command and opening YouTube.
-
----
 
 ## 📷 Screenshots
 
