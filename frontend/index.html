@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JARVIS AI — Always On Neural Interface</title>
+    <meta name="description" content="JARVIS AI — A high-tech AI assistant with real-time system monitoring and neural interface.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="scanline"></div>
+
+    <!-- Sleep Mode Overlay -->
+    <div id="sleep-overlay">
+        <div class="sleep-text">S L E E P &nbsp; M O D E</div>
+        <div class="sleep-subtext">Say &ldquo;Wake up Jarvis&rdquo; to resume</div>
+    </div>
+
+    <!-- ═══ HEADER ═══ -->
+    <header>
+        <div class="header-left">
+            <div class="system-time" id="current-time">12:00:00 AM</div>
+            <div class="system-date" id="current-date">Loading...</div>
+        </div>
+        <div class="header-center">
+            <h1>JARVIS <span class="ai-word">AI</span></h1>
+        </div>
+        <div class="header-right">
+            <div class="location"><i class="fas fa-location-dot"></i> SYSTEM CORE</div>
+            <div class="uptime">UPTIME: <span id="uptime-val">00:00:00</span></div>
+        </div>
+    </header>
+
+    <!-- ═══ MAIN ═══ -->
+    <main>
+
+        <!-- LEFT PANEL -->
+        <section class="panel side-panel" id="left-panel">
+
+            <div class="panel-header">SYSTEM HEALTH</div>
+
+            <div class="health-item">
+                <div class="health-label">CPU USAGE</div>
+                <div class="stat-row">
+                    <div class="progress-bar"><div id="cpu-bar" style="width:0%"></div></div>
+                    <span class="stat-val" id="cpu-val">0%</span>
+                </div>
+            </div>
+
+            <div class="health-item">
+                <div class="health-label">RAM USAGE</div>
+                <div class="stat-row">
+                    <div class="progress-bar"><div id="ram-bar" style="width:0%"></div></div>
+                    <span class="stat-val" id="ram-val">0%</span>
+                </div>
+            </div>
+
+            <div class="health-item">
+                <div class="health-label">NETWORK STABILITY</div>
+                <div class="stat-row">
+                    <div class="progress-bar"><div id="net-bar" style="width:98%"></div></div>
+                    <span class="stat-val">98%</span>
+                </div>
+            </div>
+
+            <div class="panel-divider"></div>
+
+            <div class="panel-header">UPCOMING TASKS</div>
+            <ul class="task-list">
+                <li><i class="far fa-circle-dot"></i> Analyze System Logs</li>
+                <li><i class="far fa-circle-dot"></i> Optimize Core Logic</li>
+                <li><i class="far fa-circle-dot"></i> Data Backup</li>
+            </ul>
+
+        </section>
+
+        <!-- CENTER PANEL -->
+        <section class="center-panel">
+            <div id="canvas-container"></div>
+
+            <div class="status-indicator">
+                <div class="status-pulse" id="status-glow"></div>
+                <span id="status-text">SYSTEM READY</span>
+            </div>
+            <div class="wake-badge" id="wake-badge">
+                <span class="wake-icon">&#127908;</span>
+                <span id="wake-label">Say &ldquo;Hey Jarvis&rdquo; to activate</span>
+            </div>
+
+            <!-- Audio Visualizer: 12 bars with staggered delays -->
+            <div class="audio-visualizer" id="audio-viz">
+                <div class="bar" style="--duration:0.55s;--delay:0.00s"></div>
+                <div class="bar" style="--duration:0.70s;--delay:0.05s"></div>
+                <div class="bar" style="--duration:0.50s;--delay:0.10s"></div>
+                <div class="bar" style="--duration:0.80s;--delay:0.15s"></div>
+                <div class="bar" style="--duration:0.60s;--delay:0.20s"></div>
+                <div class="bar" style="--duration:0.75s;--delay:0.25s"></div>
+                <div class="bar" style="--duration:0.65s;--delay:0.30s"></div>
+                <div class="bar" style="--duration:0.45s;--delay:0.35s"></div>
+                <div class="bar" style="--duration:0.85s;--delay:0.40s"></div>
+                <div class="bar" style="--duration:0.60s;--delay:0.45s"></div>
+                <div class="bar" style="--duration:0.70s;--delay:0.50s"></div>
+                <div class="bar" style="--duration:0.55s;--delay:0.55s"></div>
+            </div>
+        </section>
+
+        <!-- RIGHT PANEL -->
+        <section class="panel side-panel" id="right-panel">
+
+            <div class="panel-header">ACTIVE MODULES</div>
+            <div class="module-grid">
+                <div class="module-item active" id="mod-email">
+                    <i class="fas fa-envelope"></i>
+                    <span>EMAILS</span>
+                </div>
+                <div class="module-item active" id="mod-weather">
+                    <i class="fas fa-cloud-sun"></i>
+                    <span>WEATHER</span>
+                </div>
+                <div class="module-item" id="mod-security">
+                    <i class="fas fa-shield-halved"></i>
+                    <span>SECURITY</span>
+                </div>
+                <div class="module-item active" id="mod-neural">
+                    <i class="fas fa-brain"></i>
+                    <span>NEURAL</span>
+                </div>
+            </div>
+
+            <div class="panel-divider"></div>
+
+            <div class="panel-header">SENTIMENT ANALYSIS</div>
+            <div class="sentiment-container">
+                <div class="sentiment-gauge">
+                    <div class="gauge-arrow" id="sentiment-arrow"></div>
+                </div>
+                <div class="sentiment-label" id="sentiment-label">STABLE</div>
+            </div>
+
+            <div class="panel-divider"></div>
+
+            <div class="panel-header">QUICK ACTIONS</div>
+            <div class="actions-container">
+                <button class="action-btn" id="btn-google"   onclick="sendCommand('open google')"   title="Google">  <i class="fab fa-google"></i></button>
+                <button class="action-btn" id="btn-youtube"  onclick="sendCommand('open youtube')"  title="YouTube"> <i class="fab fa-youtube"></i></button>
+                <button class="action-btn" id="btn-github"   onclick="sendCommand('open github')"   title="GitHub">  <i class="fab fa-github"></i></button>
+                <button class="action-btn" id="btn-time"     onclick="sendCommand('time')"           title="Time">    <i class="fas fa-clock"></i></button>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ═══ FOOTER / CHAT ═══ -->
+    <footer>
+        <!-- CHAT PANEL (primary) -->
+        <div class="chat-container" id="chat-container">
+            <div class="chat-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="terminal-title">JARVIS &mdash; NEURAL CONVERSATION</span>
+                <button class="debug-toggle-btn" id="debug-toggle" title="Toggle Debug Log">
+                    <i class="fas fa-terminal"></i>
+                </button>
+            </div>
+            <div class="chat-body" id="chat-body">
+                <div class="chat-bubble jarvis">
+                    <span class="bubble-label">JARVIS</span>
+                    <div class="bubble-text">Welcome back, Sir. All systems nominal. Say <strong>"Hey Jarvis"</strong> or type below to begin.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DEBUG TERMINAL (hidden by default) -->
+        <div class="terminal-container hidden" id="terminal-container">
+            <div class="terminal-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="terminal-title">DEBUG_LOG >> SYSTEM_OUTPUT</span>
+                <button class="debug-toggle-btn" id="debug-close" title="Close Debug Log">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="terminal-body" id="terminal-log">
+                <div class="log-line">> Debug log active.</div>
+            </div>
+        </div>
+
+        <div class="input-area">
+            <div class="input-wrapper">
+                <i class="fas fa-terminal"></i>
+                <input type="text" id="user-input" placeholder="Talk to Jarvis..." autocomplete="off">
+            </div>
+            <button class="mic-btn" id="mic-btn" title="Activate Voice">
+                <i class="fas fa-microphone"></i>
+            </button>
+        </div>
+    </footer>
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
