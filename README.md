@@ -1,4 +1,4 @@
-# ⚡ JARVIS AI — Always-On Neural Interface
+#  JARVIS AI — Always-On Neural Interface
 
 > *"Sometimes you gotta run before you can walk."* — Tony Stark
 
@@ -12,7 +12,7 @@ A fully voice-activated AI desktop assistant powered by **Groq AI (Llama 3.3)**,
 
 ---
 
-## 🔥 Features
+##  Features
 
 | Feature | Description |
 |---|---|
@@ -34,7 +34,7 @@ A fully voice-activated AI desktop assistant powered by **Groq AI (Llama 3.3)**,
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 ┌─────────────────────────────────────────────────────┐
@@ -64,7 +64,65 @@ A fully voice-activated AI desktop assistant powered by **Groq AI (Llama 3.3)**,
 
 ---
 
-## 🚀 Quick Start
+##  How It Works
+
+JARVIS follows a simple event-driven flow to turn voice commands into actions:
+
+```text
+🎙️ User speaks
+      ↓
+🗣️ Speech Recognition
+      ↓
+🧠 Command / Intent Processing
+      ↓
+┌─────────────────────────────┐
+│   What does the command do? │
+└──────────────┬──────────────┘
+               ↓
+     ┌─────────┴─────────┐
+     ↓                   ↓
+🌐 System / Web       🤖 AI Request
+   Command               ↓
+     ↓              Groq LLM / Vision
+     ↓                   ↓
+     └─────────┬─────────┘
+               ↓
+        ⚡ Action / Response
+               ↓
+      📡 SSE → Dashboard
+               ↓
+       💬 UI + 🔊 Voice
+```
+
+### Core Flow
+
+1. **Voice Input** — The wake-word listener waits for `"Hey Jarvis"`.
+2. **Speech Recognition** — The spoken command is converted into text.
+3. **Intent Processing** — JARVIS determines whether the request is a system command, web action, or AI query.
+4. **Execution** — The appropriate function handles the requested action.
+5. **AI Processing** — AI-based requests are processed using Groq's Llama models, including vision capabilities for screen analysis.
+6. **Real-Time Updates** — Server-Sent Events (SSE) keep the browser dashboard synchronized with voice and system states.
+7. **Response** — JARVIS responds through both the dashboard and voice output.
+
+````
+
+Then simply:
+
+```bash
+git add README.md
+git commit -m "docs: add JARVIS system workflow"
+git push
+````
+
+**That's today's contribution.** ✅
+
+And importantly, we're not pretending you've built something new—you've documented something your project **actually does**.
+
+One thing I noticed in your existing README, though: the Architecture diagram says **“Claude AI chat”**, while the rest of the README says **Groq AI**. If Claude is no longer actually used, that's a small documentation inconsistency we should fix too.
+
+---
+
+##  Quick Start
 
 ### 1 — Prerequisites
 - Python 3.11+
@@ -94,7 +152,7 @@ Dashboard opens automatically at → **http://localhost:5000**
 
 ---
 
-## 🎙️ Voice Command Reference
+##  Voice Command Reference
 
 ### Wake & Control
 | Say | Action |
@@ -161,7 +219,7 @@ jarvis_files_by_claude/
 
 ---
 
-## 🛠️ Troubleshooting
+##  Troubleshooting
 
 | Problem | Fix |
 |---|---|
@@ -174,7 +232,7 @@ jarvis_files_by_claude/
 
 ---
 
-## 🧑‍💻 Demo Steps (for presentations)
+##  Demo Steps (for presentations)
 
 1. Start: `python main.py` — dashboard opens in browser
 2. Say **"Hey Jarvis"** — orb turns green, UI flashes
@@ -198,7 +256,7 @@ jarvis_files_by_claude/
 
 
 
-## 📷 Screenshots
+##  Screenshots
 
 ### JARVIS Dashboard
 
