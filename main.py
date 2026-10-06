@@ -34,7 +34,7 @@ import psutil
 from flask import Flask, jsonify, request, send_from_directory, Response
 from flask_cors import CORS
 from groq import Groq
-from config import groq_api_key
+from config import groq_api_key, groq_model, groq_vision_model
 
 # ─────────────────────────────────────────
 #  Logging — Professional output
@@ -81,8 +81,8 @@ def broadcast(event_type: str, data: dict):
 #  Groq AI — Setup & Chat History
 # ─────────────────────────────────────────
 _groq_client = Groq(api_key=groq_api_key)
-GROQ_MODEL       = "llama-3.3-70b-versatile"
-GROQ_VISION_MODEL = "meta-llama/llama-4-scout-17b-16e-instruct"
+GROQ_MODEL        = groq_model
+GROQ_VISION_MODEL = groq_vision_model
 
 chat_history = []   # multi-turn: [{"role": "user"|"assistant", "content": str}]
 chat_str     = ""
@@ -197,7 +197,7 @@ def chat(query: str) -> str:
             messages=messages,
             max_tokens=512
         )
-        reply = response.choices[0].message.content.strip()
+        reply = (response.choices[0].message.content or "").strip()
         chat_history.append({"role": "assistant", "content": reply})
         chat_str += f"{reply}\n"
         say(reply)
@@ -220,7 +220,7 @@ def ai_save(prompt: str) -> str:
             messages=[{"role": "user", "content": prompt}],
             max_tokens=1024
         )
-        reply = response.choices[0].message.content.strip()
+        reply = (response.choices[0].message.content or "").strip()
         os.makedirs(SAVES_DIR, exist_ok=True)
         safe_name = "".join(c if c.isalnum() or c in " _-" else "_" for c in prompt[:50]).strip()
         filename  = f"{safe_name}_{random.randint(100, 9999)}.txt"
@@ -264,7 +264,7 @@ def screen_awareness(user_question: str = "What do you see on my screen?") -> st
             ]}],
             max_tokens=512
         )
-        reply = response.choices[0].message.content.strip()
+        reply = (response.choices[0].message.content or "").strip()
         say(reply)
         broadcast("state", {"status": "SPEAKING", "message": "Jarvis is speaking...", "color": "green"})
         broadcast("log",   {"message": f"Jarvis: {reply}", "type": "jarvis"})
